@@ -11,11 +11,7 @@ pub fn list_distance(list_0: &mut [i64], list_1: &mut [i64]) -> i64 {
 pub fn list_similarity(list_0: &mut [i64], list_1: &mut [i64]) -> i64 {
   assert_eq!(list_0.len(), list_1.len());
 
-  list_0.iter().fold(0, |acc, x_0| {
-    dbg!(acc);
-    dbg!(x_0);
-    acc + list_1.iter().filter(|&x_1| x_0 == x_1).sum::<i64>()
-  })
+  list_0.iter().fold(0, |acc, x_0| acc + list_1.iter().filter(|&x_1| x_0 == x_1).sum::<i64>())
 }
 
 pub fn read_input_file(path: &Path) -> (Vec<i64>, Vec<i64>) {
@@ -31,8 +27,6 @@ pub fn read_input_file(path: &Path) -> (Vec<i64>, Vec<i64>) {
       rhs.push(num_val)
     }
   });
-  dbg!(&lhs);
-  dbg!(&rhs);
   (lhs, rhs)
 }
 
